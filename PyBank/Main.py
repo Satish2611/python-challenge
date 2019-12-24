@@ -41,12 +41,22 @@ with open(csvpath, newline='') as csvfile:
 #Changing Datetime format
     montincformat=datetime.datetime.strptime(monthinc,'%b-%y')
     montdecformat=datetime.datetime.strptime(monthdec,'%b-%y')
+
+file_output=open("PyBank_output.txt",'w')
+#writing output file
+file_output.write("Financial Analysis\n")
+file_output.write("----------------------------\n")
+file_output.write("Total Months:"+str(lengthrow)+"\n")
+file_output.write("Total: $"+str(totalprofit)+"\n")
+file_output.write("Average  Change: $"+str(round(aveagechange,2))+"\n")
+file_output.write("Greatest Increase in Profits: "+str(datetime.date.strftime(montincformat,'%b-%Y'))+" ($"+str(round(grtinc))+")\n")
+file_output.write("Greatest Increase in Profits: "+str(datetime.date.strftime(montdecformat,'%b-%Y'))+" ($"+str(round(grtdec))+")\n")
 #Displaying the output
-    print("Financial Analysis")
-    print("----------------------------")
-    print(f"Total Months:{lengthrow}")
-    print(f"Total: ${totalprofit}")
-    print(f"Average  Change: ${round(aveagechange,2)}")
-    print(f"Greatest Increase in Profits: {datetime.date.strftime(montincformat,'%b-%Y')} (${round(grtinc)})")
-    print(f"Greatest Decrease in Profits: {datetime.date.strftime(montdecformat,'%b-%Y')} (${round(grtdec)})")
-    
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months:{lengthrow}")
+print(f"Total: ${totalprofit}")
+print(f"Average  Change: ${round(aveagechange,2)}")
+print(f"Greatest Increase in Profits: {datetime.date.strftime(montincformat,'%b-%Y')} (${round(grtinc)})")
+print(f"Greatest Decrease in Profits: {datetime.date.strftime(montdecformat,'%b-%Y')} (${round(grtdec)})")
+     
