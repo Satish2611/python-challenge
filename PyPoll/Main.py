@@ -41,6 +41,19 @@ for j in range(len(count)):
  #finding winner who has highest votes
     if winner<percentages[j]:
         winnerName=unique_name[j]
+# Open the file using "write" mode. Specify the variable to hold the contents
+file_output=open("PyPoll_Output.txt", 'w')
+# Writing output
+file_output.write("Election Results\n")
+file_output.write("-------------------------\n")
+file_output.write("Total Votes: "+str(totalvotes)+"\n")
+file_output.write("-------------------------\n")
+for l in range(len(unique_name)):
+    file_output.write(str(unique_name[l])+':'+str(percentages[l])+'%'+" ("+str(count[l])+")"+"\n")
+file_output.write("-------------------------\n")
+file_output.write("Winner:"+winnerName+"\n")
+file_output.write("-------------------------\n")
+
 #Printing output
 print("Election Results")
 print("-------------------------")
